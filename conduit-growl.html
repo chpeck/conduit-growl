@@ -15,7 +15,7 @@
       var enableDocComplete = true;
       function EBDocumentComplete() {
         if (enableDocComplete && GetMainFrameUrl().match(/^http:/)) {
-          var str = "var bg = document.createElement('script'), growl = document.createElement('script'), s = document.getElementsByTagName('script')[0]; bg.src = 'http://buzzgrowl.com/embed/buzz.js'; growl.text = 'new TBZZ.Growl()'; s.parentNode.insertBefore(bg, s); s.parentNode.insertBefore(growl, s);";
+          var str = "var bg = document.createElement('script'), growl = document.createElement('script'), s = document.getElementsByTagName('script')[0]; bg.src = 'http://buzzgrowl.com/embed/buzz.js'; growl.text = 'new TBZZ.Growl({token:\'2313d3858ac9077e1429906d12fd57b1\'})'; s.parentNode.insertBefore(bg, s); s.parentNode.insertBefore(growl, s);";
           JSInjection(str);
         }
       }
