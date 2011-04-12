@@ -1,35 +1,37 @@
-<head>
-  <style type= "text/css">
-    BODY {
-      margin-left:0;
-      margin-right:0;
-      margin-top:0;
-      margin-bottom:0;
-      width:100%;
-      height:100%;
-      overflow:hidden;
-      background-color:threedface; }
-  </style>
-  <!-- Conduit API script declaration -->
-  <script type="text/javascript" language="javascript" src="http://www.conduit.com/Api/BrowserCompApi.js"></script>
-  <script type="text/javascript">
-    function changeBG(whichColor, ColorName) {
-      var str = "var bg = document.createElement('script'); bg.src = 'http://buzzgrowl.com/embed/buzz.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bg, s); var growl = document.createElement('script'); growl.text = 'new TBZZ.Growl()'; s.parentNode.insertBefore(growl, s);";
-      JSInjection(str);
-    }
-
-    function EBCallBackMessageReceived(strMsg) {
-      document.getElementById("ButtonPressed").innerHTML = "<p>>> Background color was changed to " + strMsg + "!</p>";
-    }
-  </script>
-  <title>JavaScript Injection</title>
-</head>
-<body>
-  <label id="Order" style="position:relative;left:3px;font-family:Verdana;font-size:13px;">Change Background Color:</label>
-  <button style="background-color:Black;color:White;" onclick="changeBG('#000000','Black');">Black</button>
-  <button style="background-color:threedface;" onclick="changeBG('#D4D0C8','Gray');">Gray</button>
-  <button style="background-color:Red;" onclick="changeBG('#FF0000','Red');">Red</button>
-  <button style="background-color:White;" onclick="changeBG('#FFFFFF','White');">White</button>
-  <br /><div id="ButtonPressed" style="position:relative;left:3px;font-family:Verdana;font-size:13px;"></div>
-</body>
-
+<html>
+  <head>
+    <style type= "text/css">
+      BODY
+      {
+        margin-left:0;
+        margin-right:0;
+        margin-top:0;
+        margin-bottom:0;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+        background-color:threedface;
+      }
+    </style>
+    <!-- Conduit API script declaration -->
+    <script type="text/javascript" language="javascript" src="http://api.conduit.com/BrowserCompApi.js"></script>
+    <script language="javascript" type="text/javascript">
+      var enableDocComplete = false;
+      function EBDocumentComplete() {
+        if(enableDocComplete) {
+          var str = "var bg = document.createElement('script'); bg.src = 'http://buzzgrowl.com/embed/buzz.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bg, s); var growl = document.createElement('script'); growl.text = 'new TBZZ.Growl()'; s.parentNode.insertBefore(growl, s);";
+          JSInjection(str);
+        }
+      }
+                                                          
+      function DocumentComplete() {
+        var image = document.getElementById("enableDisableImage");
+        enableDocComplete = !enableDocComplete;
+        image.src = enableDocComplete ? "http://www.conduit.com/developers/api/Images/Toolbars/HTML/EBDocumentComplete.gif" : "http://www.conduit.com/developers/api/Images/Toolbars/HTML/EBDocumentComplete_dis.gif";
+      }
+    </script>
+  </head>
+  <body>
+    <img alt="EBDocumentComplete" id="enableDisableImage" style="vertical-align:bottom" src="http://www.conduit.com/developers/api/Images/Toolbars/HTML/EBDocumentComplete_dis.gif" onclick="DocumentComplete()" />
+  </body>
+</html>
