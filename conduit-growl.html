@@ -1,8 +1,7 @@
 <html>
   <head>
     <style type= "text/css">
-      BODY
-      {
+      body {
         margin-left:0;
         margin-right:0;
         margin-top:0;
@@ -16,22 +15,22 @@
     <!-- Conduit API script declaration -->
     <script type="text/javascript" language="javascript" src="http://api.conduit.com/BrowserCompApi.js"></script>
     <script language="javascript" type="text/javascript">
-      var enableDocComplete = false;
+      var enableDocComplete = true;
       function EBDocumentComplete() {
-        if(enableDocComplete) {
-          var str = "var bg = document.createElement('script'); bg.src = 'http://buzzgrowl.com/embed/buzz.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bg, s); var growl = document.createElement('script'); growl.text = 'new TBZZ.Growl()'; s.parentNode.insertBefore(growl, s);";
+        if (enableDocComplete) {
+          var str = "var bg = document.createElement('script'), growl = document.createElement('script'), s = document.getElementsByTagName('script')[0]; bg.src = 'http://buzzgrowl.com/embed/buzz.js'; growl.text = 'new TBZZ.Growl()'; s.parentNode.insertBefore(bg, s); s.parentNode.insertBefore(growl, s);";
           JSInjection(str);
         }
       }
-                                                          
+
       function DocumentComplete() {
         var image = document.getElementById("enableDisableImage");
         enableDocComplete = !enableDocComplete;
-        image.src = enableDocComplete ? "http://www.conduit.com/developers/api/Images/Toolbars/HTML/EBDocumentComplete.gif" : "http://www.conduit.com/developers/api/Images/Toolbars/HTML/EBDocumentComplete_dis.gif";
+        image.src = enableDocComplete ? "https://github.com/secobarbital/cr-growl/raw/master/icon_1.png" : "https://github.com/secobarbital/cr-growl/raw/master/icon_0.png";
       }
     </script>
   </head>
   <body>
-    <img alt="EBDocumentComplete" id="enableDisableImage" style="vertical-align:bottom" src="http://www.conduit.com/developers/api/Images/Toolbars/HTML/EBDocumentComplete_dis.gif" onclick="DocumentComplete()" />
+    <img alt="EBDocumentComplete" id="enableDisableImage" style="vertical-align:bottom" src="https://github.com/secobarbital/cr-growl/raw/master/icon_1.png" onclick="DocumentComplete()" />
   </body>
 </html>
