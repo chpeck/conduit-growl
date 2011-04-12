@@ -23,11 +23,11 @@
       function DocumentComplete() {
         var image = document.getElementById("enableDisableImage");
         enableDocComplete = !enableDocComplete;
-        image.src = enableDocComplete ? "https://github.com/secobarbital/cr-growl/raw/master/icon_1.png" : "https://github.com/secobarbital/cr-growl/raw/master/icon_0.png";
+        image.src = enableDocComplete ? "http://conduit-growl.s3.amazonaws.com/icon_1.png" : "http://conduit-growl.s3.amazonaws.com/icon_0.png";
       }
     </script>
   </head>
   <body>
-    <img alt="BuzzGrowl" id="enableDisableImage" style="vertical-align:bottom" src="https://github.com/secobarbital/cr-growl/raw/master/icon_1.png" onclick="DocumentComplete()" />
+    <img alt="BuzzGrowl" id="enableDisableImage" style="vertical-align:bottom" src="http://conduit-growl.s3.amazonaws.com/icon_1.png" onclick="DocumentComplete()" />
   </body>
 </html>
